@@ -1,0 +1,54 @@
+<div class="container">
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="form-signin">
+    <h2 class="form-signin-heading">Please sign up</h2>
+    <label for="inputUserName" class="sr-only">UserName</label>
+    <input type="text" id="inputUserName" class="form-control" placeholder="UserName"
+           required autofocus
+           [(ngModel)]="model.userName" name="userName"
+           #userName="ngModel">
+    <div [hidden]="userName.valid || userName.pristine"
+         class="alert alert-danger">
+      UserName is required
+    </div>
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+           required
+           [(ngModel)]="model.psw" name="password"
+           #password="ngModel">
+    <div [hidden]="password.valid || password.pristine"
+         class="alert alert-danger">
+      password is required
+    </div>
+
+    <label for="inputRealName" class="sr-only">RealName</label>
+    <input type="text" id="inputRealName" class="form-control" placeholder="realName"
+           required
+           [(ngModel)]="model.realName" name="realName"
+           #realName="ngModel">
+    <div [hidden]="realName.valid || realName.pristine"
+         class="alert alert-danger">
+      realName is required
+    </div>
+
+    <label for="inputAge" class="sr-only">age</label>
+    <input type="text" id="inputAge" class="form-control" placeholder="age"
+           required
+           [(ngModel)]="model.age" name="age"
+           #age="ngModel">
+    <div [hidden]="age.valid || age.pristine"
+         class="alert alert-danger">
+      age is required
+    </div>
+
+    <br/>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!registerForm.form.valid">Sign up</button>
+    <div [hidden]="failedMsg == null"
+         class="alert alert-danger">
+      {{failedMsg}}
+    </div>
+
+  </form>
+
+</div>

@@ -1,0 +1,31 @@
+<ng-template [ngIf]="userList != null">
+  <div class="row">
+    <div class="table-responsive col-md-12">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th width="20%">UserName</th>
+          <th width="20">Psw</th>
+          <th width="20%">RealName</th>
+          <th width="20%">Age</th>
+          <th width="20%">Opt</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of userList">
+          <td>{{user.userName}}</td>
+          <td>{{user.psw}}</td>
+          <td>{{user.realName}}</td>
+          <td>{{user.age}}</td>
+          <td>
+            <a class="btn btn-success btn-xs" routerLink="/user/{{user.userName}}">Detail</a>
+            <a class="btn btn-success btn-xs" href="javascript:void(0)" (click)="pageDelete(user.userName)">
+              page delete
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-template>
